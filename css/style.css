@@ -1,0 +1,499 @@
+@charset "UTF-8";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: verdana;
+  background-color: white;
+  color: black;
+  max-width: 100%;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*mobile first*/
+nav {
+  height: 0px;
+}
+
+/* start burgermenu*/
+#menuToggle {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  /*Burgermenuen*/
+}
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+  /*
+   * And let's slide it in from the left
+   */
+  /*
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  /*
+   * But let's hide the middle one.
+   */
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+}
+#menuToggle input:checked ~ ul {
+  -webkit-transform: none;
+          transform: none;
+}
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  -webkit-transform: rotate(45deg) translate(-2px, -1px);
+          transform: rotate(45deg) translate(-2px, -1px);
+  background: #c6b696;
+}
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(0, -1px);
+          transform: rotate(-45deg) translate(0, -1px);
+}
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #c6b696;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+#menuToggle span:first-child {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+#menuToggle span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+#menu {
+  position: absolute;
+  width: 500px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  /*farven på kassen og punkterne*/
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /*hvor på siden menuen er inden du trykker på den */
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+  /* floatet når man trykker på menuen*/
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+#menu li {
+  /*str på bogstaverne og padding dvs. mellemrummet mellem dem*/
+  padding: 45px 0;
+  font-size: 22px;
+}
+#menu li:hover {
+  /* farven hen over bogstaverne i menuen*/
+  color: #c6b696;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+  /*background-color: #232523;*/
+}
+#menu a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+}
+#menu a:hover {
+  /* farven hen over bogstaverne i menuen*/
+  color: #c6b696;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+/*slut burgermenu*/
+/* start baggrund*/
+/* hero er billederne og deres position */
+#hero1 {
+  background: url("../img/graashop.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  /*margin-top: -15px;*/
+  width: 104%;
+  height: 100%;
+  max-width: 100%;
+  overflow: scroll;
+  background-attachment: scroll;
+}
+#hero1 h1 {
+  text-align: center;
+  margin: auto;
+  margin-top: 30%;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 3em;
+  font-weight: 400;
+}
+#hero1 .logo {
+  width: 50%;
+  float: right;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 115%;
+  margin-right: 7%;
+}
+
+#hero2 {
+  background: url("../img/svampp.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 104%;
+  height: 100%;
+  max-width: 100%;
+  overflow: scroll;
+  background-attachment: scroll;
+}
+
+#hero3 {
+  background: url("../img/reer.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 104%;
+  max-width: 100%;
+  overflow: scroll;
+  background-attachment: scroll;
+}
+
+#hero4 {
+  background: url("../img/flasker.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 104%;
+  max-width: 100%;
+  overflow: scroll;
+  background-attachment: scroll;
+}
+
+/*teksten på billederne samt på de hvide kasser */
+.hero, .content {
+  position: relative;
+  width: 100%;
+  /*str. på billederne*/
+}
+.hero .inner, .content .inner {
+  top: 0;
+  min-height: 600px;
+  position: relative;
+}
+
+.content {
+  /* str. på de hvide kasser */
+}
+.content .inner1 {
+  height: 100%;
+  position: relative;
+}
+.content .inner1 p {
+  font-family: 'Open Sans', sans-serif;
+  padding: 8%;
+  letter-spacing: 1px;
+  line-height: 1.7;
+  padding-top: 0;
+  text-align: justify;
+}
+.content .inner1 h3 {
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 8%;
+  margin-top: 8%;
+  letter-spacing: 1px;
+  line-height: 1.7;
+  font-weight: bold;
+  color: #c6b696;
+}
+
+.content .inner2 {
+  height: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.content .inner2 .flex-container {
+  width: 100%;
+  margin: auto;
+}
+.content .inner2 .flex-container img {
+  width: 102%;
+  height: auto;
+}
+.content .inner2 .flex-container p {
+  font-family: 'Open Sans', sans-serif;
+  padding: 8%;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.content .inner2 .flex-container b {
+  color: #c6b696;
+  font-weight: bold;
+}
+
+.content .inner3 {
+  height: 100%;
+  background-color: black;
+}
+.content .inner3 iframe {
+  width: 100%;
+  height: 500;
+  display: block;
+  margin: auto;
+}
+
+/* hvis der skal en overflade over billederne*/
+/*.hero .inner{
+  background: rgba(0,0,0,0.7) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAD0lEQVQIW2NkQABjRmQOAAM+AGkQsDBSAAAAAElFTkSuQmCC) repeat;}*/
+/* footer begynder */
+.footer {
+  background-color: black;
+  width: 100%;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 50px;
+  position: absolute;
+  display: inline-block;
+  vertical-align: top;
+}
+.footer .footer-left {
+  width: 49%;
+}
+.footer .footer-left i {
+  background-color: #33383b;
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  font-size: 25px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+}
+.footer .footer-left p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+.footer .footer-left p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+.footer .footer-left p a {
+  color: #c6b696;
+  text-decoration: none;
+}
+.footer .footer-right {
+  text-align: center;
+  width: 50%;
+}
+.footer .footer-right h2 {
+  color: #ffffff;
+  font-size: 200%;
+  font-weight: normal;
+  margin: 0;
+}
+.footer .footer-right h2 span {
+  color: #c6b696;
+}
+.footer .footer-right .icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+.footer .footer-right .name {
+  color: #c6b696;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    font-size: 14px;
+  }
+
+  .footer .footer-left,
+  .footer .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .footer .footer-left i {
+    margin-right: 100%;
+  }
+}
+@media screen and (min-width: 767px) {
+  .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .flex-container div {
+    width: 33%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  #hero1 h1 {
+    text-align: center;
+    margin: auto;
+    margin-top: 15%;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3em;
+    font-weight: 400;
+  }
+  #hero1 .logo {
+    width: 40%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 90%;
+    margin-right: 2%;
+  }
+
+  #hero1, #hero2, #hero3, #hero4 {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: scroll;
+  }
+
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media screen and (min-width: 700px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 90%;
+    margin-right: 3%;
+  }
+}
+@media screen and (min-width: 800px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 60%;
+    margin-right: 3%;
+  }
+}
+@media screen and (min-width: 900px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 52%;
+    margin-right: 3%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 40%;
+    margin-right: 3%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 35%;
+    margin-right: 3%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #hero1 .logo {
+    width: 27%;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 35%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+  }
+}
